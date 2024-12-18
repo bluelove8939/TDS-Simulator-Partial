@@ -1,0 +1,44 @@
+#include "{config}_wrapper.h"
+
+
+extern "C" VerilatedContext* create_context() {{
+    VerilatedContext* contextp = new VerilatedContext;
+    return contextp;
+}}
+
+extern "C" {config}_top* create_top(VerilatedContext* contextp) {{
+    {config}_top* top = new {config}_top{{contextp}};
+    return top;
+}}
+
+extern "C" void delete_context(VerilatedContext *contextp) {{
+    delete contextp;
+}}
+
+extern "C" void delete_top({config}_top *top) {{
+    delete top;
+}}
+
+extern "C" void evaluate({config}_top *top) {{
+    top->eval();
+}}
+
+extern "C" void increase_time(VerilatedContext *contextp) {{
+    contextp->timeInc(CLOCK_PS);
+}}
+
+extern "C" uint32_t clock_cycles(VerilatedContext *contextp) {{
+    return contextp->time() / 2;
+}}
+
+extern "C" void clock_trigger({config}_top *top, VerilatedContext *contextp) {{
+    top->clk = !top->clk;
+    top->eval();
+    contextp->timeInc(CLOCK_PS);
+
+    top->clk = !top->clk;
+    top->eval();
+    contextp->timeInc(CLOCK_PS);
+}}
+
+{set_get_funcs}

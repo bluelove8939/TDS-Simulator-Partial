@@ -1,0 +1,2 @@
+// get array integer
+extern "C" uint{word_size}_t* get_{name} ({config}_top *top);

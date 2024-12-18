@@ -1,0 +1,2 @@
+// get normal integer
+extern "C" uint{size}_t get_{name} ({config}_top *top);

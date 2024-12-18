@@ -1,0 +1,3 @@
+extern "C" uint{word_size}_t* get_{name} ({config}_top *top) {{
+    return top->{name}.m_storage;
+}}

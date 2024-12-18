@@ -1,0 +1,2 @@
+// set normal integer
+extern "C" void set_{name} ({config}_top *top, uint{size}_t *value);

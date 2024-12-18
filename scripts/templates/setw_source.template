@@ -1,0 +1,5 @@
+extern "C" void set_{name} ({config}_top *top, uint{word_size}_t *value, int length) {{
+    for (int i = 0; i < length; i++) {{
+        top->{name}[i] = value[i];
+    }}
+}}

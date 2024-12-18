@@ -1,0 +1,2 @@
+// set array integer
+extern "C" void set_{name} ({config}_top *top, uint{word_size}_t *value, int length);
